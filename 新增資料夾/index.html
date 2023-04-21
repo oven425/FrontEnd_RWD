@@ -2,46 +2,42 @@
 <html>
 
 <head>
-    <style>
-        h1 {
-            font-size: 30px;
-        }
-
-        .h1_1 {
-            background-color: green;
-        }
-
-        .h1_2 {
-            background-color: blue;
-        }
-
-        /* @media (max-width:400px),
-        print {
-            h1 {
-                font-size: 100px;
-                color: red;
-            }
-        } */
-
-        @media (max-width:400px) {
-            .h1_1 {
-                background-color: red;
-            }
-        }
-
-
-        @media (orientation: portrait) {
-            .h1_1 {
-                background-color: blueviolet;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="index.css" rel="stylesheet">
     <title>Page Title</title>
 </head>
-
+<!-- https://www.youtube.com/watch?v=XZsuI5wyRzs&list=PL5e68lK9hEzciaR-CFduKDww_AVVUw66y&index=1 -->
 <body>
-    <h1 class="h1_1">This is a Heading</h1>
-    <h1 class="h1_2">This is a Heading</h1>
+    <nav>
+        <div  class="toogle" onclick="toogle()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <ul id="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">WPF</a></li>
+            <li><a href="#">C++</a></li>
+            <li><a href="#">c#</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div>
+            <div style="height: 3000px; width: 100%; background: red;"></div>
+        </div>
+    </nav>
+    <script type="text/javascript">
+        let isMenushow=false;
+        const toogle=()=>{
+            var obj = document.getElementById("menu");
+            isMenushow = !isMenushow;
+            if(isMenushow==true){
+                obj.style.setProperty('display','block');
+            }
+            else{
+                obj.style.setProperty('display','none');
+            }
+
+        }
+    </script>
 </body>
 
 </html>
