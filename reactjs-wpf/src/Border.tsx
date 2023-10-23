@@ -1,4 +1,6 @@
 import { CSSProperties, useEffect, useState } from "react"
+import { SoildBrush } from "./Brush"
+import { Colors } from "./Color"
 export enum VerticalAlignment {
     Top,
     Center,
@@ -6,70 +8,75 @@ export enum VerticalAlignment {
     Stretch
 }
 
-export const VerticalAlignmentToCSS = (data:VerticalAlignment):CSSProperties=>{
-    return({
-        alignSelf:'center'
+export const VerticalAlignmentToCSS = (data: VerticalAlignment): CSSProperties => {
+    return ({
+        alignSelf: 'center'
     })
 }
-interface IBrush{
-    ToCSS(): CSSProperties;
+
+
+export class Thickness{
+    constructor(left: number, top: number, right: number, bottom: number = 0) {
+        this.left = left
+        this.top = top
+        this.right = right
+        this.bottom = bottom
+    }
+    left:number = 0;
+    top:number = 0;
+    right:number = 0;
+    bottom:number = 0;
+    ToCss():string{
+        return `${this.top}px ${this.right}px ${this.bottom}px ${this.left}px`
+    }
 }
 
-export class SoildBrush implements  IBrush{
-    constructor(r:number, g:number, b:number, a:number=255) {
-        this.r = r
-        this.g = g
-        this.b = b
-        this.a = a
-      }
-    r:number = 0;
-    g:number = 0;
-    b:number = 0;
-    a:number = 0;
-    ToCSS(): CSSProperties {
+type BorderProps = {
+    borderbrush?:SoildBrush
+    background?: SoildBrush
+    borderthickness?:Thickness
+    verticalAlignment?: VerticalAlignment,
+    width?: number,
+    height?: number,
+    cornerRadius?:Thickness
+}
+export const Border = (props: BorderProps) => {
+    let red = Colors.Red;
+    
+    console.log(red);
+    let argb:number = 0xff000000;
+     
+    console.log((argb>>>24));
+    console.log(props)
+    useEffect(() => {
+        console.log(`propschange: ${props.width}`);
+        setStyle({
+            ...props.background?.ToCSS(),
+            width: `${props.width}px`,
+            height: '50px',
+            border:'3px',
+            borderStyle:'solid',
+            borderColor:'red yellow green blue',
+            borderWidth:`${props.borderthickness?.ToCss()}`,
+            borderRadius:`${props.cornerRadius?.ToCss()}`
+        })
+    }, [props])
+    const ver = (): CSSProperties => {
         return ({
-            backgroundColor:`rgb(${this.r},${this.g},${this.b})`
-          });
+            alignSelf: 'center'
+        });
     }
+    // const myStyle: React.CSSProperties = {
 
-}
-
-class UIProps
-{
-    width:number = 0;
-}
-
-type BorderProps={
-    background?:SoildBrush
-    VerticalAlignment?:VerticalAlignment,
-    width?:number,
-    height?:number
-}
-export const Border=(props:BorderProps)=>{
-    useEffect(()=>{
-         console.log(`propschange: ${props.width}`);
-         let ww = props.width;
-         
-         setStyle({
-            ... props.background?.ToCSS(),
-            width:`${props.width}px`,
-            height:'50px',
-         })
-    },[props])
-    const ver=():CSSProperties=>{
-        return ({
-            alignSelf:'center'
-          });
-    }
-    const myStyle: React.CSSProperties = {
-
-        ...props.background?.ToCSS(),
-        ...ver()
-    }
+    //     ...props.background?.ToCSS(),
+    //     ...ver()
+    // }
     const [style, setStyle] = useState<CSSProperties>();
-    return(
+    return (
         <div style={style}>
 
         </div>
     )
 }
+
+export { SoildBrush }
