@@ -42,11 +42,20 @@ function App() {
     //       />
     // </Window>
 
-    //canvas
-    <div className='bg-red-700 h-screen w-screen relative '>
-      <div className=' absolute left-10 top-10 bg-green-400 w-10 h-10'></div>
-      <div className=' absolute left-30 top-30 bg-green-400 w-10 h-10'></div>
-    </div>
+    // //canvas
+    // <div className='bg-red-700 h-screen w-screen relative '>
+    //   <div className=' absolute left-10 top-10 bg-green-400 w-10 h-10'></div>
+    //   <div className=' absolute left-30 top-30 bg-green-400 w-10 h-10'></div>
+    // </div>
+
+    <Window>
+      <div className=' grid bg-red-100 w-full h-full'>
+        <div className='bg-green-600 w-10 h-10 justify-self-center self-center row-start-1 col-start-1'></div>
+        <div className='bg-blue-600 w-10 h-10 justify-self-center self-center row-start-1 col-start-1'></div>
+      </div>
+    </Window>
+    //ContentControl
+
   );
 }
 
