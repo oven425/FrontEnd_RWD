@@ -2,7 +2,7 @@ import React, { ReactElement, useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ChildWindow, { IChildWindowRef } from './ChildWindow';
-import { Window } from './Window';
+import  Window  from './Window';
 import { Border, SoildBrush, Thickness, VerticalAlignment } from './Border';
 import { writeFile } from 'fs';
 import { Colors } from './Color';
@@ -49,7 +49,7 @@ function App() {
     // </div>
 
     <Window>
-      <div className=' grid bg-red-100 w-full h-full'>
+      <div className=' grid  w-full h-full'>
         <div className='bg-green-600 w-10 h-10 justify-self-center self-center row-start-1 col-start-1'></div>
         <div className='bg-blue-600 w-10 h-10 justify-self-center self-center row-start-1 col-start-1'></div>
       </div>
