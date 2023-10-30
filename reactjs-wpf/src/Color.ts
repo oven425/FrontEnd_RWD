@@ -1,3 +1,6 @@
+type byte = 0|1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9|10
+//let aa:byte=11;
+
 export class Color {
     r: number = 0;
     g: number = 0;
@@ -50,15 +53,10 @@ export class Colors {
     public static DarkBlue: Color = Color.FromUInt32(4278190219);
 
     public static DarkCyan: Color = Color.FromUInt32(4278225803);
-
     public static DarkGoldenrod: Color = Color.FromUInt32(4290283019);
-
     public static DarkGray: Color = Color.FromUInt32(4289309097);
-
     public static DarkGreen: Color = Color.FromUInt32(4278215680);
-
     public static DarkKhaki: Color = Color.FromUInt32(4290623339);
-
     public static DarkMagenta: Color = Color.FromUInt32(4287299723);
     public static DarkOliveGreen: Color = Color.FromUInt32(4283788079);
     public static DarkOrange: Color = Color.FromUInt32(4294937600);
@@ -72,97 +70,51 @@ export class Colors {
     public static DarkViolet: Color = Color.FromUInt32(4287889619);
     public static DeepPink: Color = Color.FromUInt32(4294907027);
     public static DeepSkyBlue: Color = Color.FromUInt32(4278239231);
-
     public static DimGray: Color = Color.FromUInt32(4285098345);
-
     public static DodgerBlue: Color = Color.FromUInt32(4280193279);
-
     public static Firebrick: Color = Color.FromUInt32(4289864226);
-
     public static FloralWhite: Color = Color.FromUInt32(4294966000);
-
     public static ForestGreen: Color = Color.FromUInt32(4280453922);
-
     public static Fuchsia: Color = Color.FromUInt32(4294902015);
-
     public static Gainsboro: Color = Color.FromUInt32(4292664540);
-
     public static GhostWhite: Color = Color.FromUInt32(4294506751);
-
     public static Gold: Color = Color.FromUInt32(4294956800);
-
     public static Goldenrod: Color = Color.FromUInt32(4292519200);
-
     public static Gray: Color = Color.FromUInt32(4286611584);
-
     public static Green: Color = Color.FromUInt32(4278222848);
-
     public static GreenYellow: Color = Color.FromUInt32(4289593135);
-
     public static Honeydew: Color = Color.FromUInt32(4293984240);
-
     public static HotPink: Color = Color.FromUInt32(4294928820);
-
     public static IndianRed: Color = Color.FromUInt32(4291648604);
-
     public static Indigo: Color = Color.FromUInt32(4283105410);
-
     public static Ivory: Color = Color.FromUInt32(4294967280);
-
     public static Khaki: Color = Color.FromUInt32(4293977740);
-
     public static Lavender: Color = Color.FromUInt32(4293322490);
-
     public static LavenderBlush: Color = Color.FromUInt32(4294963445);
-
     public static LawnGreen: Color = Color.FromUInt32(4286381056);
-
     public static LemonChiffon: Color = Color.FromUInt32(4294965965);
-
     public static LightBlue: Color = Color.FromUInt32(4289583334);
-
     public static LightCoral: Color = Color.FromUInt32(4293951616);
-
     public static LightCyan: Color = Color.FromUInt32(4292935679);
-
     public static LightGoldenrodYellow: Color = Color.FromUInt32(4294638290);
-
     public static LightGray: Color = Color.FromUInt32(4292072403);
-
     public static LightGreen: Color = Color.FromUInt32(4287688336);
-
     public static LightPink: Color = Color.FromUInt32(4294948545);
-
     public static LightSalmon: Color = Color.FromUInt32(4294942842);
-
     public static LightSeaGreen: Color = Color.FromUInt32(4280332970);
-
     public static LightSkyBlue: Color = Color.FromUInt32(4287090426);
-
     public static LightSlateGray: Color = Color.FromUInt32(4286023833);
-
     public static LightSteelBlue: Color = Color.FromUInt32(4289774814);
-
     public static LightYellow: Color = Color.FromUInt32(4294967264);
-
     public static Lime: Color = Color.FromUInt32(4278255360);
-
     public static LimeGreen: Color = Color.FromUInt32(4281519410);
-
     public static Linen: Color = Color.FromUInt32(4294635750);
-
     public static Magenta: Color = Color.FromUInt32(4294902015);
-
     public static Maroon: Color = Color.FromUInt32(4286578688);
-
     public static MediumAquamarine: Color = Color.FromUInt32(4284927402);
-
     public static MediumBlue: Color = Color.FromUInt32(4278190285);
-
     public static MediumOrchid: Color = Color.FromUInt32(4290401747);
-
     public static MediumPurple: Color = Color.FromUInt32(4287852763);
-
     public static MediumSeaGreen: Color = Color.FromUInt32(4282168177);
     public static MediumSlateBlue: Color = Color.FromUInt32(4286277870);
     public static MediumSpringGreen: Color = Color.FromUInt32(4278254234);

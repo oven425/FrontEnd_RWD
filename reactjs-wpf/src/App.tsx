@@ -48,13 +48,20 @@ function App() {
     //   <div className=' absolute left-30 top-30 bg-green-400 w-10 h-10'></div>
     // </div>
 
-    <Window>
-      <div className=' grid  w-full h-full'>
-        <div className='bg-green-600 w-10 h-10 justify-self-center self-center row-start-1 col-start-1'></div>
-        <div className='bg-blue-600 w-10 h-10 justify-self-center self-center row-start-1 col-start-1'></div>
-      </div>
-    </Window>
+    // <Window>
+    //   <div className=' grid  w-full h-full'>
+    //     <div className='bg-green-600 w-10 h-10 justify-self-center self-center row-start-1 col-start-1'></div>
+    //     <div className='bg-blue-600 w-10 h-10 justify-self-center self-center row-start-1 col-start-1'></div>
+    //   </div>
+    // </Window>
     //ContentControl
+
+
+    <Window>
+      <Border verticalAlignment={VerticalAlignment.Center} background={new SoildBrush(Colors.Gray)}>
+        <div>123</div>
+      </Border>
+    </Window>
 
   );
 }

@@ -1,6 +1,7 @@
-import { CSSProperties, useEffect, useState } from "react"
+import { CSSProperties, ReactNode, useEffect, useState } from "react"
 import { SoildBrush } from "./Brush"
 import { Colors } from "./Color"
+import React from "react";
 export enum VerticalAlignment {
     Top,
     Center,
@@ -8,11 +9,35 @@ export enum VerticalAlignment {
     Stretch
 }
 
-export enum HorizontalAlignment  {
+export enum HorizontalAlignment {
     Left,
     Center,
     Right,
     Stretch
+}
+
+const HorizontalAlignmentToCSS = (data: HorizontalAlignment | undefined): CSSProperties => {
+    let str = 'stretch';
+    if (data === undefined) {
+
+    }
+    switch (data) {
+        case HorizontalAlignment.Center: {
+            str = 'center'
+        }
+            break;
+        case HorizontalAlignment.Left: {
+            str = 'left'
+        }
+            break;
+        case HorizontalAlignment.Right: {
+            str = 'right'
+        }
+            break;
+    }
+    return ({
+        justifySelf: 'auto'
+    })
 }
 
 export const VerticalAlignmentToCSS = (data: VerticalAlignment | undefined): CSSProperties => {
@@ -56,11 +81,11 @@ export class Thickness {
     }
 }
 
-export class Grid{
-    Row:number = 0
-    Column:number = 0;
-    RowSpan:number=1;
-    ColumnSpan:number = 1;
+export class Grid {
+    Row: number = 0
+    Column: number = 0;
+    RowSpan: number = 1;
+    ColumnSpan: number = 1;
 }
 
 type BorderProps = {
@@ -68,10 +93,12 @@ type BorderProps = {
     background?: SoildBrush
     borderthickness?: Thickness
     verticalAlignment?: VerticalAlignment
+    horizontalAlignment?: HorizontalAlignment
     width?: number
     height?: number
     cornerRadius?: Thickness
-    margin?:Thickness
+    margin?: Thickness
+    children?:ReactNode
 }
 
 export const Border = (props: BorderProps) => {
@@ -79,13 +106,15 @@ export const Border = (props: BorderProps) => {
     useEffect(() => {
         setStyle({
             ...props.background?.ToCSS(),
-            ...VerticalAlignmentToCSS(props.verticalAlignment),
-
+            // ...VerticalAlignmentToCSS(props.verticalAlignment),
+            // ...HorizontalAlignmentToCSS(props.horizontalAlignment),
+            alignSelf:'center',
+            justifySelf:'stretch',
             width: `${props.width}px`,
             height: `${props.height}px`,
-            gridColumnStart:'1',
-            gridRowStart:'1',
-            margin:'2',
+            //gridColumnStart:'1',
+            //gridRowStart:'1',
+            //margin:'2px',
             // border:'3px',
             // borderStyle:'solid',
             // borderColor:'red yellow green blue',
@@ -100,11 +129,13 @@ export const Border = (props: BorderProps) => {
         });
     }
 
-
+    
     const [style, setStyle] = useState<CSSProperties>();
     return (
         <div style={style}>
-
+            {
+                React.Children.only(props.children)
+            }
         </div>
     )
 }

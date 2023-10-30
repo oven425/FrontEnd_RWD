@@ -2,6 +2,7 @@ import { CSSProperties, ReactElement, ReactNode, useEffect, useState } from "rea
 import { SoildBrush } from "./Brush"
 import { Colors } from "./Color"
 import PropTypes from 'prop-types'
+import React from "react"
 // type WindowProps={
 //     title?:string,
 //     children:ReactNode|string
@@ -21,28 +22,40 @@ import PropTypes from 'prop-types'
 //     background:new SoildBrush(Colors.Red)
 // }
 
-type WindowProps={
-    background?:SoildBrush
-    children:ReactNode|string
+type WindowProps = {
+    background?: SoildBrush
+    children: ReactNode
+    cc?: ReactElement
 }
 
-
-const Window=(props:WindowProps)=>{
+//https://jaketrent.com/post/change-parent-on-child-focus-react/
+//https://www.google.com/search?q=React.cloneElement&rlz=1C1ONGR_zh-TWTW1004TW1004&sourceid=chrome&ie=UTF-8
+const Window = (props: WindowProps) => {
 
     const [style, setStyle] = useState<CSSProperties>();
-    useEffect(()=>{
-        
+    useEffect(() => {
         setStyle({
-            display:'grid',
-            width:'100vw',
-            height:'100vh',
-            backgroundColor:`${props.background?.ToCSS()}`
+            display: 'grid',
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: `${props.background?.ToCSS()}`
         })
-    },[props])
-    return(
+
+    }, [props])
+
+    const renderContent = React.cloneElement(React.Children.only(props.children) as React.ReactElement<WindowProps>, {
+
+    })
+    // const renderContent = React.cloneElement(props.children, {
+    //     style: {
+
+    //     }
+    //   })
+    return (
         <div style={style}>
             {
-                props.children
+                renderContent
+                //React.Children.only(props.children)
             }
         </div>
     )
