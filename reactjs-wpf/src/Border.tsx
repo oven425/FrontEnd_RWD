@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode, useEffect, useState } from "react"
+import { CSSProperties, FC, ReactNode, useEffect, useState } from "react"
 import { SoildBrush } from "./Brush"
 import { Colors } from "./Color"
 import React from "react";
@@ -88,7 +88,7 @@ export class Grid {
     ColumnSpan: number = 1;
 }
 
-type BorderProps = {
+export type BorderProps = {
     borderbrush?: SoildBrush
     background?: SoildBrush
     borderthickness?: Thickness
@@ -101,9 +101,10 @@ type BorderProps = {
     children?:ReactNode
 }
 
-export const Border = (props: BorderProps) => {
+export const Border :FC<BorderProps>= (props) => {
     console.log(props)
     useEffect(() => {
+        console.log('Border useEffect')
         setStyle({
             ...props.background?.ToCSS(),
             // ...VerticalAlignmentToCSS(props.verticalAlignment),
@@ -134,7 +135,8 @@ export const Border = (props: BorderProps) => {
     return (
         <div style={style}>
             {
-                React.Children.only(props.children)
+                props.children
+                // React.Children.only(props.children)
             }
         </div>
     )

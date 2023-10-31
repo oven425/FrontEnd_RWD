@@ -59,7 +59,7 @@ function App() {
 
     <Window>
       <Border verticalAlignment={VerticalAlignment.Center} background={new SoildBrush(Colors.Gray)}>
-        <div>123</div>
+        {/* <div>123</div> */}
       </Border>
     </Window>
 
