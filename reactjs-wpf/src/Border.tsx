@@ -106,7 +106,7 @@ export const Border :FC<BorderProps>= (props) => {
     useEffect(() => {
         console.log('Border useEffect')
         setStyle({
-            ...props.background?.ToCSS(),
+            //...props.background?.ToCSS(),
             // ...VerticalAlignmentToCSS(props.verticalAlignment),
             // ...HorizontalAlignmentToCSS(props.horizontalAlignment),
             alignSelf:'center',

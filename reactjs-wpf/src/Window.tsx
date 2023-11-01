@@ -1,4 +1,4 @@
-import { CSSProperties, ReactElement, ReactNode, useEffect, useState } from "react"
+import { CSSProperties, ReactElement, ReactNode, cloneElement, useEffect, useState } from "react"
 import { SoildBrush } from "./Brush"
 import { Colors } from "./Color"
 import PropTypes from 'prop-types'
@@ -543,18 +543,15 @@ const Window = (props: WindowProps) => {
         }
     };
 
-    const clonedElement = React.cloneElement(props.children as ReactElement<BorderProps|HTMLElement>,{
-        style:{...styleObj, color:'red'}
+    const clonedElement = cloneElement(props.children as ReactElement<BorderProps|HTMLElement>,{
+        style:{...styleObj, color:'red', backgroundColor:'red'}
+        
     }, 'Goodbye, world!');
      console.log(clonedElement);
     const renderContent = React.cloneElement(React.Children.only(props.children) as React.ReactElement<WindowProps>, {
        
     })
-    // const renderContent = React.cloneElement(props.children, {
-    //     style: {
 
-    //     }
-    //   })
     return (
         <div style={style}>
             {
