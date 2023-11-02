@@ -6,7 +6,10 @@ import  Window  from './Window';
 import { Border, SoildBrush, Thickness, VerticalAlignment } from './Border';
 import { writeFile } from 'fs';
 import { Colors } from './Color';
-
+import { products } from './data';
+import List from './ListBox';
+import Row from './Row';
+import "./styles.css";
 
 function App() {
   const [width, setWidth] = useState(100)
@@ -57,11 +60,22 @@ function App() {
     //ContentControl
 
 
-    <Window>
-      <Border verticalAlignment={VerticalAlignment.Center} background={new SoildBrush(Colors.Gray)}>
-        {/* <div>123</div> */}
-      </Border>
-    </Window>
+    // <Window>
+    //   <Border verticalAlignment={VerticalAlignment.Center} background={new SoildBrush(Colors.Gray)}>
+    //     {/* <div>123</div> */}
+    //   </Border>
+    // </Window>
+
+    <List
+      items={products}
+      renderItem={(product, isHighlighted) =>
+        <Row
+          key={product.id}
+          title={product.title}
+          isHighlighted={isHighlighted}
+        />
+      }
+    />
 
   );
 }
