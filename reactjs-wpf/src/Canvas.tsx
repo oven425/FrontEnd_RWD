@@ -1,6 +1,10 @@
-import { type } from "os";
 import { CSSProperties, useEffect, useState } from "react";
 import { SoildBrush } from "./Brush";
+
+export type CanvasAttachProps={
+    left:number,
+    top:number
+}
 
 type CanvasProps={
     width?:number,

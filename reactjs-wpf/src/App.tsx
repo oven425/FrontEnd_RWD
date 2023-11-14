@@ -9,7 +9,7 @@ import { Colors } from './Color';
 import { products } from './data';
 import List from './ListBox';
 import Row from './Row';
-import "./styles.css";
+// import "./styles.css";
 
 function App() {
   const [width, setWidth] = useState(100)
@@ -66,17 +66,23 @@ function App() {
     //   </Border>
     // </Window>
 
-    <List
-      items={products}
-      renderItem={(product, isHighlighted) =>
-        <Row
-          key={product.id}
-          title={product.title}
-          isHighlighted={isHighlighted}
-        />
-      }
-    />
+    // <List
+    //   items={products}
+    //   renderItem={(product, isHighlighted) =>
+    //     <Row
+    //       key={product.id}
+    //       title={product.title}
+    //       isHighlighted={isHighlighted}
+    //     />
+    //   }
+    // />
 
+    // <Window>
+      
+    // </Window>
+    <div style={{display:'grid', background:'red',width:'100vw',height:'100vh'}}>
+
+    </div>
   );
 }
 
