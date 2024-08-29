@@ -77,12 +77,14 @@ function App() {
     //   }
     // />
 
-    // <Window>
-      
-    // </Window>
-    <div style={{display:'grid', background:'red',width:'100vw',height:'100vh'}}>
+    <Window>
+      <Window.Content>
+        <div>123</div>
+      </Window.Content>
+    </Window>
+    // <div style={{display:'grid', background:'red',width:'100vw',height:'100vh'}}>
 
-    </div>
+    // </div>
   );
 }
 

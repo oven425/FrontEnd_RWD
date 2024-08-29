@@ -22,7 +22,14 @@ import { BorderProps } from "./Border"
 // const defaultProps={
 //     background:new SoildBrush(Colors.Red)
 // }
-
+type ReactNodeA =
+| ReactElement
+| string
+| number
+| Iterable<ReactNode>
+| boolean
+| null
+| undefined
 type WindowProps = {
     background?: SoildBrush
     children?: ReactNode
@@ -31,7 +38,7 @@ type WindowProps = {
 //https://jaketrent.com/post/change-parent-on-child-focus-react/
 //https://www.google.com/search?q=React.cloneElement&rlz=1C1ONGR_zh-TWTW1004TW1004&sourceid=chrome&ie=UTF-8
 const Window = (props: WindowProps) => {
-
+    console.log(props.children?.valueOf())
     const [style, setStyle] = useState<CSSProperties>();
     useEffect(() => {
         setStyle({
@@ -45,11 +52,13 @@ const Window = (props: WindowProps) => {
 
     return (
         <div style={style}>
-            
+{/* {Window.Content} */}
 
             
         </div>
     )
 }
+const DialogHeader = (props:WindowProps) => <div>{props.children}</div>;
+Window.Content=DialogHeader
 //Window.defaultProps = defaultProps;
 export default Window
